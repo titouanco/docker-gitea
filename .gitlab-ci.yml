@@ -1,0 +1,49 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - dockerpush
+
+build:master:
+  stage: build
+  only:
+    - branches@eownis/docker-gitea
+  except:
+    - master@eownis/docker-gitea
+  script:
+    - docker build --build-arg GITEA_VERSION=master .
+
+build:v1.0:
+  stage: build
+  only:
+    - branches@eownis/docker-gitea
+  except:
+    - master@eownis/docker-gitea
+  script:
+    - docker build --build-arg GITEA_VERSION=release/v1.0 .
+
+dockerpush:master:
+  stage: dockerpush
+  only:
+    - master@eownis/docker-gitea
+  script:
+    - docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
+    - docker build -t ${DOCKERHUB_REPO}:latest .
+    - docker tag ${DOCKERHUB_REPO}:latest ${DOCKERHUB_REPO}:master
+    - docker push ${DOCKERHUB_REPO}:latest
+    - docker push ${DOCKERHUB_REPO}:master
+
+dockerpush:v1.0:
+  stage: dockerpush
+  only:
+    - master@eownis/docker-gitea
+  script:
+    - docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
+    - docker build -t ${DOCKERHUB_REPO}:v1.0 .
+    - docker push ${DOCKERHUB_REPO}:v1.0
