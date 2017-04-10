@@ -1,8 +1,9 @@
 FROM alpine:3.5
 LABEL maintainer "Titouan Condé <eownis+docker@titouan.co>"
+LABEL org.label-schema.vcs-url="https://gitlab.com/eownis/docker-gitea"
 
-ARG GOLANG_VERSION=1.8
-ARG GOLANG_DOWNLOAD_SHA256=406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596
+ARG GOLANG_VERSION=1.8.1
+ARG GOLANG_DOWNLOAD_SHA256=33daf4c03f86120fdfdc66bddf6bfff4661c7ca11c5da473e537f4d69b470e57
 ARG GITEA_VERSION=master
 
 ENV UID="991" \
