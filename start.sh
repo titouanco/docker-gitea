@@ -1,4 +1,5 @@
 #!/bin/sh
+
 addgroup -g ${GID} git
 adduser -h /opt/data -s /bin/sh -D -G git -u ${UID} git
 
