@@ -1,6 +1,6 @@
 # 🐳 eownis/gitea
 
-[![build status](https://gitlab.com/eownis/docker-gitea/badges/master/build.svg)](https://gitlab.com/eownis/docker-gitea/commits/master)
+[![build status](https://gitlab.com/eownis/docker-gitea/badges/master/build.svg)](https://gitlab.com/eownis/docker-gitea/pipelines)
 
 [![](https://images.microbadger.com/badges/version/eownis/gitea.svg)](https://microbadger.com/images/eownis/gitea "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/eownis/gitea.svg)](https://microbadger.com/images/eownis/gitea "Get your own image badge on microbadger.com")
 
