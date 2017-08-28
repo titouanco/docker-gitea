@@ -20,12 +20,6 @@ build:master:
     - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then docker push ${DOCKERHUB_REPO}:latest; fi
     - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then docker push ${DOCKERHUB_REPO}:master; fi
 
-build:v1.0:
-  stage: build
-  script:
-    - docker build --build-arg GITEA_VERSION=release/v1.0 -t ${DOCKERHUB_REPO}:v1.0 .
-    - if [ "$CI_COMMIT_REF_NAME" == "master" ]; then docker push ${DOCKERHUB_REPO}:v1.0; fi
-
 build:v1.1:
   stage: build
   script:
