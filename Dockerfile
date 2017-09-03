@@ -1,8 +1,7 @@
+FROM golang:1.9-alpine3.6 as builder
 LABEL maintainer "Titouan Condé <eownis+docker@titouan.co>"
 LABEL org.label-schema.name="Gitea" \
       org.label-schema.vcs-url="https://git.titouan.co/eownis/docker-gitea"
-
-FROM golang:1.9-alpine3.6 as builder
 
 ARG GITEA_VERSION=master
 
