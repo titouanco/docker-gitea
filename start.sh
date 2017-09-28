@@ -1,8 +1,8 @@
 #!/bin/sh
 
 addgroup -g ${GID} git
-adduser -h /opt/data -s /bin/sh -D -G git -u ${UID} git
+adduser -h /data -s /bin/sh -D -G git -u ${UID} git
 
-chown -R git:git /opt
+chown -R git:git /data
 
-chpst -u git -U git -- sh -c "HOME=/opt/data /opt/gitea/gitea web -c /opt/data/config.ini"
+chpst -u git -U git -- sh -c "HOME=/data gitea web -c /data/config.ini"

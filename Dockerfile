@@ -16,14 +16,14 @@ ENV UID="991" \
     GID="991" \
     USER=git
 
-COPY --from=builder /go/src/code.gitea.io/gitea/gitea/ /opt/gitea/
-COPY start.sh /usr/bin/start.sh
+COPY --from=builder /go/src/code.gitea.io/gitea/gitea /usr/local/bin/gitea
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
 
 RUN apk add --no-cache bash git openssh-client runit tini
-RUN chmod +x /usr/bin/start.sh
 
-VOLUME /opt/data
-EXPOSE 2222 3000
+VOLUME /data
+EXPOSE 2222/tcp 3000/tcp
 
-WORKDIR /opt/data
-CMD ["/sbin/tini","--","/usr/bin/start.sh"]
+WORKDIR /data
+CMD ["/sbin/tini","--","/usr/local/bin/start.sh"]
