@@ -1,7 +1,4 @@
 FROM golang:1.9-alpine3.6 as builder
-LABEL maintainer "Titouan Condé <eownis+docker@titouan.co>"
-LABEL org.label-schema.name="Gitea" \
-      org.label-schema.vcs-url="https://git.titouan.co/eownis/docker-gitea"
 
 ARG GITEA_VERSION=master
 
@@ -11,6 +8,9 @@ RUN git clone --depth 1 --branch $GITEA_VERSION https://github.com/go-gitea/gite
 RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="sqlite bindata" make generate build
 
 FROM alpine:3.6
+LABEL maintainer "Titouan Condé <eownis+docker@titouan.co>"
+LABEL org.label-schema.name="Gitea" \
+      org.label-schema.vcs-url="https://git.titouan.co/eownis/docker-gitea"
 
 ENV UID="991" \
     GID="991" \
