@@ -5,4 +5,4 @@ adduser -h /data -s /bin/sh -D -G git -u ${UID} git
 
 chown -R git:git /data
 
-chpst -u git -U git -- sh -c "HOME=/data gitea web -c /data/config.ini"
+chpst -u git -U git -- sh -c "cd /data && HOME=/data gitea web -c /data/config.ini"
