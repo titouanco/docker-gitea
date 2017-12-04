@@ -7,7 +7,7 @@ RUN mkdir -p $GOPATH/src/code.gitea.io
 RUN git clone --depth 1 --branch $GITEA_VERSION https://github.com/go-gitea/gitea.git $GOPATH/src/code.gitea.io/gitea
 RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="sqlite bindata" make generate build
 
-FROM alpine:3.6
+FROM alpine:3.7
 LABEL maintainer "Titouan Condé <eownis+docker@titouan.co>"
 LABEL org.label-schema.name="Gitea" \
       org.label-schema.vcs-url="https://git.titouan.co/eownis/docker-gitea"
