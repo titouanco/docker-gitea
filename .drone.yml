@@ -12,5 +12,7 @@ matrix:
   include:
     - TAG: latest
       GITEA_VERSION: master
+    - TAG: v1.5
+      GITEA_VERSION: release/v1.5
     - TAG: v1.4
       GITEA_VERSION: release/v1.4
