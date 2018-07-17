@@ -8,6 +8,8 @@ pipeline:
     build_args:
       - GITEA_VERSION=${GITEA_VERSION}
 
+branches: master
+
 matrix:
   include:
     - TAG: latest
