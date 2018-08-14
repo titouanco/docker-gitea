@@ -1,6 +1,7 @@
 pipeline:
   docker:
     image: plugins/docker
+    custom_dns: [ 1.1.1.1, 1.0.0.1 ]
     repo: eownis/gitea
     storage_driver: overlay2
     secrets: [ docker_username, docker_password ]
