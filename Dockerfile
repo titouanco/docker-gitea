@@ -1,16 +1,17 @@
-FROM golang:1.10-alpine as builder
+FROM golang:1.11-alpine3.8 as builder
 
+ARG GITEA_REPO=github.com/go-gitea/gitea
 ARG GITEA_VERSION=master
 
 RUN apk add --no-cache git make gcc libc-dev
 RUN mkdir -p $GOPATH/src/code.gitea.io
-RUN git clone --depth 1 --branch $GITEA_VERSION https://github.com/go-gitea/gitea.git $GOPATH/src/code.gitea.io/gitea
+RUN git clone --depth 1 --branch $GITEA_VERSION https://${GITEA_REPO}.git $GOPATH/src/code.gitea.io/gitea
 RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="sqlite bindata" make generate build
 
 FROM alpine:3.8
 LABEL maintainer "Titouan Condé <hi+docker@titouan.co>"
 LABEL org.label-schema.name="Gitea" \
-      org.label-schema.vcs-url="https://git.titouan.co/t/docker-gitea"
+      org.label-schema.vcs-url="https://git.tycho.space/docker/gitea"
 
 ENV UID="991" \
     GID="991" \
