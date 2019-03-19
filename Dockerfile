@@ -8,7 +8,7 @@ ARG GITEA_VERSION=master
 RUN apk add --no-cache git make gcc libc-dev
 RUN mkdir -p $GOPATH/src/code.gitea.io
 RUN git clone --depth 1 --branch $GITEA_VERSION https://${GITEA_REPO}.git $GOPATH/src/code.gitea.io/gitea
-RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="sqlite bindata" make generate build
+RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="bindata sqlite sqlite_unlock_notify" make generate build
 
 FROM $BUILD_ARCH/alpine:3.9
 LABEL maintainer "Titouan Condé <hi+docker@titouan.co>"
