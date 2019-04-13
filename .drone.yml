@@ -1,8 +1,7 @@
 pipeline:
   docker:
     image: plugins/docker
-    repo: eownis/gitea
-    storage_driver: overlay2
+    repo: titouanco/gitea
     secrets: [ docker_username, docker_password ]
     tags: ${TAG}
     build_args:
