@@ -1,19 +1,50 @@
-pipeline:
-  docker:
-    image: plugins/docker
+---
+kind: pipeline
+name: gitea-master
+
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
     repo: titouanco/gitea
-    secrets: [ docker_username, docker_password ]
-    tags: ${TAG}
+    tags: latest
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     build_args:
-      - GITEA_VERSION=${GITEA_VERSION}
+      - GITEA_VERSION=master
 
-branches: master
+---
+kind: pipeline
+name: gitea-v1.8
 
-matrix:
-  include:
-    - TAG: latest
-      GITEA_VERSION: master
-    - TAG: v1.8
-      GITEA_VERSION: release/v1.8
-    - TAG: v1.7
-      GITEA_VERSION: release/v1.7
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: titouanco/gitea
+    tags: v1.8
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    build_args:
+      - GITEA_VERSION=release/v1.8
+
+---
+kind: pipeline
+name: gitea-v1.7
+
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: titouanco/gitea
+    tags: v1.7
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    build_args:
+      - GITEA_VERSION=release/v1.7
