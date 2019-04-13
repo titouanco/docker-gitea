@@ -2,49 +2,63 @@
 kind: pipeline
 name: gitea-master
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
-- name: docker  
+- name: docker
   image: plugins/docker
   settings:
+    build_args:
+    - GITEA_VERSION=master
+    password:
+      from_secret: docker_password
     repo: titouanco/gitea
     tags: latest
     username:
       from_secret: docker_username
-    password:
-      from_secret: docker_password
-    build_args:
-      - GITEA_VERSION=master
 
 ---
 kind: pipeline
 name: gitea-v1.8
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
-- name: docker  
+- name: docker
   image: plugins/docker
   settings:
+    build_args:
+    - GITEA_VERSION=release/v1.8
+    password:
+      from_secret: docker_password
     repo: titouanco/gitea
     tags: v1.8
     username:
       from_secret: docker_username
-    password:
-      from_secret: docker_password
-    build_args:
-      - GITEA_VERSION=release/v1.8
 
 ---
 kind: pipeline
 name: gitea-v1.7
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
-- name: docker  
+- name: docker
   image: plugins/docker
   settings:
+    build_args:
+    - GITEA_VERSION=release/v1.7
+    password:
+      from_secret: docker_password
     repo: titouanco/gitea
     tags: v1.7
     username:
       from_secret: docker_username
-    password:
-      from_secret: docker_password
-    build_args:
-      - GITEA_VERSION=release/v1.7
+
+...
