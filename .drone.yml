@@ -21,6 +21,27 @@ steps:
 
 ---
 kind: pipeline
+name: gitea-v1.9
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    build_args:
+    - GITEA_VERSION=release/v1.9
+    password:
+      from_secret: docker_password
+    repo: titouanco/gitea
+    tags: v1.9
+    username:
+      from_secret: docker_username
+
+---
+kind: pipeline
 name: gitea-v1.8
 
 platform:
