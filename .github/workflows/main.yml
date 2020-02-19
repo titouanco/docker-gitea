@@ -1,0 +1,58 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  IMAGE_NAME: titouanco/gitea
+
+jobs:
+  gitea-master:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --build-arg GITEA_VERSION=master -t ${{ env.IMAGE_NAME }}:latest
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Push image
+        run: docker push ${{ env.IMAGE_NAME }}:latest
+
+  gitea-v1.11:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --build-arg GITEA_VERSION=release/v1.11 -t ${{ env.IMAGE_NAME }}:v1.11
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Push image
+        run: docker push ${{ env.IMAGE_NAME }}:v1.11
+
+  gitea-v1.10:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --build-arg GITEA_VERSION=release/v1.10 -t ${{ env.IMAGE_NAME }}:v1.10
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Push image
+        run: docker push ${{ env.IMAGE_NAME }}:v1.10
