@@ -1,14 +1,17 @@
-# 🐳 titouanco/gitea
+# 🐳 `titouanco/gitea`
 
-[![build status](https://cd.code.titouan.co/api/badges/titouan/docker-gitea/status.svg)](https://cd.code.titouan.co/titouan/docker-gitea)
+[Gitea](https://gitea.io). Built by [GitHub Actions](https://github.com/titouanco/docker-gitea/actions) and pushed to [Docker Hub](https://hub.docker.com/r/titouanco/gitea/).
 
-[![](https://images.microbadger.com/badges/version/titouanco/gitea.svg)](https://microbadger.com/images/titouanco/gitea "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/titouanco/gitea.svg)](https://microbadger.com/images/titouanco/gitea "Get your own image badge on microbadger.com") Based on the [master branch](https://github.com/go-gitea/gitea/tree/master) of Gitea
+## Tags available
 
-[![](https://images.microbadger.com/badges/version/titouanco/gitea:v1.11.svg)](https://microbadger.com/images/titouanco/gitea:v1.11 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/titouanco/gitea:v1.11.svg)](https://microbadger.com/images/titouanco/gitea:v1.11 "Get your own image badge on microbadger.com") Based on the [release/v1.11 branch](https://github.com/go-gitea/gitea/tree/release/v1.11) of Gitea
-
-[![](https://images.microbadger.com/badges/version/titouanco/gitea:v1.10.svg)](https://microbadger.com/images/titouanco/gitea:v1.10 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/titouanco/gitea:v1.10.svg)](https://microbadger.com/images/titouanco/gitea:v1.10 "Get your own image badge on microbadger.com") Based on the [release/v1.10 branch](https://github.com/go-gitea/gitea/tree/release/v1.10) of Gitea
-
-[Gitea](https://gitea.io). Built by [Drone](https://cd.code.titouan.co/titouan/docker-gitea) and pushed to [Docker Hub](https://hub.docker.com/r/titouanco/gitea/).
+- Built everyday at ~2:00 UTC:
+  - `latest` : Based on the [master branch](https://github.com/go-gitea/gitea/tree/master) of Gitea
+  - `v1.11` : Based on the [release/v1.11 branch](https://github.com/go-gitea/gitea/tree/release/v1.11) of Gitea
+  - `v1.10` : Based on the [release/v1.10 branch](https://github.com/go-gitea/gitea/tree/release/v1.10) of Gitea
+- Not built anymore:
+  - `v1.9` : Based on the [release/v1.9 branch](https://github.com/go-gitea/gitea/tree/release/v1.9) of Gitea
+  - `v1.8` : Based on the [release/v1.8 branch](https://github.com/go-gitea/gitea/tree/release/v1.8) of Gitea
+  - `v1.7` : Based on the [release/v1.7 branch](https://github.com/go-gitea/gitea/tree/release/v1.7) of Gitea
 
 ## Usage
 

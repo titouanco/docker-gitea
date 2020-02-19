@@ -1,9 +1,11 @@
-name: Docker
+name: Build & Push to Docker Hub
 
 on:
   push:
     branches:
       - master
+  schedule:
+    - cron: '0 2 * * *'
 
 env:
   IMAGE_NAME: titouanco/gitea
@@ -11,8 +13,6 @@ env:
 jobs:
   gitea-master:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
     steps:
       - uses: actions/checkout@v2
 
@@ -27,8 +27,6 @@ jobs:
 
   gitea-v1_11:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
     steps:
       - uses: actions/checkout@v2
 
@@ -43,8 +41,6 @@ jobs:
 
   gitea-v1_10:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
     steps:
       - uses: actions/checkout@v2
 

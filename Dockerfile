@@ -13,7 +13,7 @@ RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="bindata sqlite sqlite_unlock_not
 FROM $BUILD_ARCH/alpine:3.11
 LABEL maintainer "Titouan Condé <hi+docker@titouan.co>"
 LABEL org.label-schema.name="Gitea" \
-      org.label-schema.vcs-url="https://code.titouan.co/titouan/docker-gitea"
+      org.label-schema.vcs-url="https://github.com/titouanco/docker-gitea"
 
 ENV UID="991" \
     GID="991" \
