@@ -25,7 +25,7 @@ jobs:
       - name: Push image
         run: docker push ${{ env.IMAGE_NAME }}:latest
 
-  gitea-v1.11:
+  gitea-v1_11:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
@@ -41,7 +41,7 @@ jobs:
       - name: Push image
         run: docker push ${{ env.IMAGE_NAME }}:v1.11
 
-  gitea-v1.10:
+  gitea-v1_10:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
