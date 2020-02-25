@@ -1,4 +1,4 @@
-name: Build & Push to Docker Hub
+name: Build & Push to Docker Registry
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
       - master
   schedule:
     - cron: '0 2 * * *'
+  repository_dispatch:
+    types: run-dockerpush
 
 env:
   IMAGE_NAME: titouanco/gitea
