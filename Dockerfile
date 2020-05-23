@@ -6,10 +6,10 @@ FROM $BUILD_ARCH/golang:$BUILDER_GOLANG_VERSION as builder
 ARG GITEA_REPO=github.com/go-gitea/gitea
 ARG GITEA_VERSION=master
 
-RUN apk add --no-cache git make gcc libc-dev nodejs npm
+RUN apk add --no-cache build-base git nodejs npm
 RUN mkdir -p $GOPATH/src/code.gitea.io
 RUN git clone --depth 1 --branch $GITEA_VERSION https://${GITEA_REPO}.git $GOPATH/src/code.gitea.io/gitea
-RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="bindata sqlite sqlite_unlock_notify" make generate build
+RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="bindata sqlite sqlite_unlock_notify" make clean-all build
 
 FROM $BUILD_ARCH/alpine:3.11
 LABEL maintainer "Titouan Condé <hi+docker@titouan.co>"
