@@ -1,6 +1,7 @@
 ARG BUILD_ARCH=amd64
+ARG BUILDER_GOLANG_VERSION=1.14-alpine3.11
 
-FROM $BUILD_ARCH/golang:1.13-alpine3.11 as builder
+FROM $BUILD_ARCH/golang:$BUILDER_GOLANG_VERSION as builder
 
 ARG GITEA_REPO=github.com/go-gitea/gitea
 ARG GITEA_VERSION=master
