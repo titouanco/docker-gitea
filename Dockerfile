@@ -1,5 +1,5 @@
 ARG BUILD_ARCH=amd64
-ARG BUILDER_GOLANG_VERSION=1.14-alpine3.11
+ARG BUILDER_GOLANG_VERSION=1.14-alpine3.12
 
 FROM $BUILD_ARCH/golang:$BUILDER_GOLANG_VERSION as builder
 
@@ -11,7 +11,7 @@ RUN mkdir -p $GOPATH/src/code.gitea.io
 RUN git clone --depth 1 --branch $GITEA_VERSION https://${GITEA_REPO}.git $GOPATH/src/code.gitea.io/gitea
 RUN cd $GOPATH/src/code.gitea.io/gitea && TAGS="bindata sqlite sqlite_unlock_notify" make clean-all build
 
-FROM $BUILD_ARCH/alpine:3.11
+FROM $BUILD_ARCH/alpine:3.12
 LABEL maintainer "Titouan Condé <hi+docker@titouan.co>"
 LABEL org.label-schema.name="Gitea" \
       org.label-schema.vcs-url="https://github.com/titouanco/docker-gitea"
