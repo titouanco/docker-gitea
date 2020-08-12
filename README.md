@@ -8,8 +8,8 @@
   - `latest` : Based on the [master branch](https://github.com/go-gitea/gitea/tree/master) of Gitea
   - `v1.12` : Based on the [release/v1.12 branch](https://github.com/go-gitea/gitea/tree/release/v1.12) of Gitea
   - `v1.11` : Based on the [release/v1.11 branch](https://github.com/go-gitea/gitea/tree/release/v1.11) of Gitea
-  - `v1.10` : Based on the [release/v1.10 branch](https://github.com/go-gitea/gitea/tree/release/v1.10) of Gitea
 - Not built anymore:
+  - `v1.10` : Based on the [release/v1.10 branch](https://github.com/go-gitea/gitea/tree/release/v1.10) of Gitea
   - `v1.9` : Based on the [release/v1.9 branch](https://github.com/go-gitea/gitea/tree/release/v1.9) of Gitea
   - `v1.8` : Based on the [release/v1.8 branch](https://github.com/go-gitea/gitea/tree/release/v1.8) of Gitea
   - `v1.7` : Based on the [release/v1.7 branch](https://github.com/go-gitea/gitea/tree/release/v1.7) of Gitea
